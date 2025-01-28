@@ -1,7 +1,6 @@
+# Tower of Hanoi - Java and Python Implementations
 
-# Tower of Hanoi - Java Implementation
-
-This project implements the classic Tower of Hanoi puzzle in Java.
+This project implements the classic Tower of Hanoi puzzle in both Java and Python.
 
 ## Description
 
@@ -14,9 +13,14 @@ The program solves the Tower of Hanoi puzzle by recursively moving the disks fro
 
 ## How to Run
 
-1. Copy the code into a `.java` file.
+### Java
+1. Copy the Java code into a `.java` file.
 2. Compile the code using `javac`.
 3. Run the compiled code with `java Main`.
+
+### Python
+1. Copy the Python code into a `.py` file.
+2. Run the code using `python filename.py`.
 
 ## Example Output
 For 3 disks, the output will be:
@@ -31,8 +35,58 @@ Mover anel 2 da torre B para a torre C
 Mover anel 1 da torre A para a torre C
 ```
 
+## Code Implementations
+
+### Java
+
+```java
+class Main{
+  public static void main(String[] args){
+    int n = 3;
+    char O = 'A';
+    char D = 'C';
+    char A = 'B';
+  
+    TH(n, O, D, A);
+  }
+  
+  public static void TH(int n, char O, char D, char A){
+      if(n > 1){
+        TH(n-1, O, A, D);
+        System.out.println("Mover anel " + n + " de " + O + " para " + D);
+        TH(n-1, A, D, O);
+      } else {
+          System.out.println("Mover anel 1 da torre " + O + " para a torre " + D);
+    }
+  }
+}
+```
+
+### Python
+
+```python
+def TH(n, O, D, A):
+    if n > 1:
+        TH(n - 1, O, A, D)
+        print(f"Move disk {n} from {O} to {D}")
+        TH(n - 1, A, D, O)
+    else:
+        print(f"Move disk 1 from {O} to {D}")
+
+def main():
+    n = 3
+    O = 'A'
+    D = 'C'
+    A = 'B'
+  
+    TH(n, O, D, A)
+
+if __name__ == "__main__":
+    main()
+```
+
 ## Notes
 
-- The recursive function `TH(int n, char O, char D, char A)` is used to solve the puzzle.
+- The recursive function `TH(int n, char O, char D, char A)` in Java and `TH(n, O, D, A)` in Python is used to solve the puzzle.
 - `n` represents the number of disks.
 - `O`, `D`, and `A` represent the source, destination, and auxiliary towers, respectively.
